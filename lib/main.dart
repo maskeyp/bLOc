@@ -1,7 +1,10 @@
 import 'package:business_logic_component/blocs/internetbloc/internet_bloc.dart';
+import 'package:business_logic_component/cubits/internet_cubit.dart';
 import 'package:business_logic_component/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cubit_homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => InternetBloc(),
+      // create: (context) => InternetBloc(),
+      create: (context) => InternetCubit(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -29,7 +33,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const HomeScreen(),
+        home: const CubitHomeScreen(),
       ),
     );
   }
